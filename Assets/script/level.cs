@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class level : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class level : MonoBehaviour
             btn[i].transform.GetChild(0).GetComponent<Image>().sprite = pass_no[i];
             btn[i].transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
+       
     }
 
     // Update is called once per frame
@@ -41,6 +43,9 @@ public class level : MonoBehaviour
     public void onclickLevel_btn(int n)
     {
         click_no = n;
+        PlayerPrefs.SetInt("level_number",click_no);
         Debug.Log(click_no);
+        SceneManager.LoadScene("play");
+       
     }
 }
