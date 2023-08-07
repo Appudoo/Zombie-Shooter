@@ -54,10 +54,11 @@ public class gunController : MonoBehaviour
         g.transform.SetParent(parent.transform);
         g.GetComponent<Rigidbody2D>().AddForce(directionOfBullet * 1500);
         destroy();
+        playManager.instance.CheckisOver();
     }
     void destroy()
     {
-        Destroy(imagesArray[bulletCounter - 1]);
+        Destroy(imagesArray[bulletCounter-1]);
         if (bulletCounter == 5)
         {
             Debug.Log("Game over");

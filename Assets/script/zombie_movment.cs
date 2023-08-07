@@ -9,10 +9,12 @@ public class zombie_movment : MonoBehaviour
     public Sprite dieImage;
     Animator animator;
     bool isDie=false;
+    internal int DieConuter,level;
     void Start()
     {
         inst = this;
         animator = GetComponent<Animator>();
+        level = PlayerPrefs.GetInt("level_number");
     }
 
     // Update is called once per frame
@@ -28,10 +30,12 @@ public class zombie_movment : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet")
         {
+            DieConuter++;
             animator.SetTrigger("isDie");
             isDie = true;
             StartCoroutine(onDieImge());
             speed = 0;
+            this.GetComponent<PolygonCollider2D>().enabled = false;
         }
         if (collision.gameObject.tag == "right break")
         {
