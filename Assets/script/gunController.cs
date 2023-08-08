@@ -10,6 +10,7 @@ public class gunController : MonoBehaviour
     GameObject[] imagesArray =new GameObject[6];
     internal AudioSource audioSource;
     public AudioClip gunFire, zombie, zombieDie;
+    LineRenderer line;
 
     int bulletCounter = 5, totalbullet = 5;
 
@@ -20,6 +21,7 @@ public class gunController : MonoBehaviour
         instance = this;
         audioSource = GetComponent<AudioSource>();
         audioSource.PlayOneShot(zombie);
+        line=GetComponent<LineRenderer>();
         for (int i = 0; i < 5; i++)
         {
             imagesArray[i] = Instantiate(bullet_prefab, bullets_number.transform);
@@ -31,7 +33,8 @@ public class gunController : MonoBehaviour
     {
         Vector2 gunPos = transform.position;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        line.SetPosition(0, gunPos);
+        line.SetPosition(1, mousePos);
         
 
         Vector2 offset = new Vector2(mousePos.x - gunPos.x, mousePos.y - gunPos.y);
