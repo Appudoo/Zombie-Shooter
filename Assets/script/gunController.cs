@@ -7,11 +7,11 @@ public class gunController : MonoBehaviour
     public static gunController instance;
     public GameObject bullet, gunpoint, parent, bullets_number, bullet_prefab;
     public Sprite bullets;
-    public GameObject[] imagesArray = new GameObject[5];
+    GameObject[] imagesArray =new GameObject[6];
     internal AudioSource audioSource;
     public AudioClip gunFire, zombie, zombieDie;
-    public GameObject target;
-    int bulletCounter = 0;
+
+    int bulletCounter = 5, totalbullet = 5;
 
     Vector2 pos;
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class gunController : MonoBehaviour
         Vector2 gunPos = transform.position;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        target.transform.position = new Vector2(mousePos.x, mousePos.y);
+        
 
         Vector2 offset = new Vector2(mousePos.x - gunPos.x, mousePos.y - gunPos.y);
 
@@ -46,9 +46,7 @@ public class gunController : MonoBehaviour
 
     void Fire()
     {
-        bulletCounter++;
         Vector2 directionOfBullet = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
-        print(directionOfBullet);
         audioSource.PlayOneShot(gunFire);
         GameObject g = Instantiate(bullet, gunpoint.transform.position, Quaternion.identity);
         g.transform.SetParent(parent.transform);
@@ -59,6 +57,9 @@ public class gunController : MonoBehaviour
     void destroy()
     {
         Destroy(imagesArray[bulletCounter-1]);
+        bulletCounter--;
+        
+       
         if (bulletCounter == 5)
         {
             Debug.Log("Game over");

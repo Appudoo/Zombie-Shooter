@@ -6,48 +6,46 @@ public class zombie_movment : MonoBehaviour
 {
     public static zombie_movment inst;
     float speed = 0.02f;
-    public Sprite dieImage;
     Animator animator;
-    bool isDie=false;
-    internal int DieConuter,level;
+ 
+    internal int level;
     void Start()
     {
         inst = this;
-        animator = GetComponent<Animator>();
+        this.animator = this.GetComponent<Animator>();
         level = PlayerPrefs.GetInt("level_number");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isDie)
-        {
+     
             transform.position = new Vector2(transform.position.x + speed, transform.position.y);
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "bullet")
         {
-            DieConuter++;
-            animator.SetTrigger("isDie");
-            isDie = true;
-            StartCoroutine(onDieImge());
-            speed = 0;
             this.GetComponent<PolygonCollider2D>().enabled = false;
+            this.animator.SetTrigger("isDie");
+            playManager.instance. DieConuter++;
+            Debug.Log(playManager.instance.DieConuter);
+           
+            Debug.Log(this);
+           
+            speed = 0;
         }
         if (collision.gameObject.tag == "right break")
         {
             speed = -0.01f;
-            //this.GetComponent<SpriteRenderer>().flipX = true;
             this.transform.position = new Vector2(transform.position.x - 0.8f, transform.position.y);
             this.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         if (collision.gameObject.tag == "left break")
         {
             speed = 0.01f;
-            //this.GetComponent<SpriteRenderer>().flipX = false;
             this.transform.position = new Vector2(transform.position.x + 0.8f, transform.position.y);
             this.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
@@ -60,10 +58,6 @@ public class zombie_movment : MonoBehaviour
        
     }
 
-    IEnumerator onDieImge()
-    {
-        yield return new WaitForSeconds(1.8f);
-        this.animator.enabled = false;
-    }
+    
 
 }

@@ -32,6 +32,7 @@ public class level : MonoBehaviour
             btn[i].transform.GetChild(0).GetComponent<Image>().sprite = pass_no[i];
             btn[i].transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
+     
        
     }
 
@@ -44,7 +45,7 @@ public class level : MonoBehaviour
     {
         click_no = n;
         PlayerPrefs.SetInt("level_number",click_no);
-        Debug.Log(click_no);
+      
         SceneManager.LoadScene("play");
        
     }

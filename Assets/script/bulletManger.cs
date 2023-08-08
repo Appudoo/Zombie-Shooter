@@ -35,7 +35,7 @@ public class bulletManger : MonoBehaviour
     {
         if (collision.gameObject.tag == "zombie")
         {
-            Debug.Log("hello");
+            
             zombie_movment.inst.tiggerOn();
             
         }
