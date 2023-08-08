@@ -15,7 +15,7 @@ public class playManager : MonoBehaviour
         instance = this;
         level_no = PlayerPrefs.GetInt("level_number");
         levels[level_no-1].SetActive(true);
-       
+        Debug.Log("hello");
     }
 
     // Update is called once per frame
