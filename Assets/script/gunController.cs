@@ -7,12 +7,12 @@ public class gunController : MonoBehaviour
     public static gunController instance;
     public GameObject bullet, gunpoint, parent, bullets_number, bullet_prefab;
     public Sprite bullets;
-    GameObject[] imagesArray =new GameObject[6];
+    GameObject[] imagesArray = new GameObject[6];
     internal AudioSource audioSource;
     public AudioClip gunFire, zombie, zombieDie;
     LineRenderer line;
 
-    int bulletCounter = 5, totalbullet = 5;
+    internal int bulletCounter = 5, totalbullet = 5;
 
     Vector2 pos;
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class gunController : MonoBehaviour
         instance = this;
         audioSource = GetComponent<AudioSource>();
         audioSource.PlayOneShot(zombie);
-        line=GetComponent<LineRenderer>();
+        line = GetComponent<LineRenderer>();
         for (int i = 0; i < 5; i++)
         {
             imagesArray[i] = Instantiate(bullet_prefab, bullets_number.transform);
@@ -33,9 +33,9 @@ public class gunController : MonoBehaviour
     {
         Vector2 gunPos = transform.position;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        line.SetPosition(0, gunPos);
+        line.SetPosition(0, gunpoint.transform.position);
         line.SetPosition(1, mousePos);
-        
+
 
         Vector2 offset = new Vector2(mousePos.x - gunPos.x, mousePos.y - gunPos.y);
 
@@ -55,14 +55,18 @@ public class gunController : MonoBehaviour
         g.transform.SetParent(parent.transform);
         g.GetComponent<Rigidbody2D>().AddForce(directionOfBullet * 1500);
         destroy();
-        playManager.instance.CheckisOver();
+        
     }
     void destroy()
     {
-        Destroy(imagesArray[bulletCounter-1]);
-        bulletCounter--;
-        
-       
+        if (bulletCounter > 0)
+        {
+            Destroy(imagesArray[bulletCounter - 1]);
+            bulletCounter--;
+           
+        }
+
+
         if (bulletCounter == 5)
         {
             Debug.Log("Game over");

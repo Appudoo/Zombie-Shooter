@@ -28,12 +28,11 @@ public class zombie_movment : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet")
         {
+           
             this.GetComponent<PolygonCollider2D>().enabled = false;
             this.animator.SetTrigger("isDie");
             playManager.instance. DieConuter++;
-            Debug.Log(playManager.instance.DieConuter);
            
-            Debug.Log(this);
            
             speed = 0;
         }

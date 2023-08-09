@@ -12,6 +12,7 @@ TagManager:
   - buttom
   - zombie
   - bullet
+  - Die
   layers:
   - Default
   - TransparentFX
