@@ -19,6 +19,7 @@ public class playManager : MonoBehaviour
         Debug.Log("hello");
 
         InvokeRepeating(nameof(CheckisOver), 0f, 3f);
+        
     }
 
     // Update is called once per frame

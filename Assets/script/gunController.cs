@@ -72,7 +72,4 @@ public class gunController : MonoBehaviour
             Debug.Log("Game over");
         }
     }
-
-
-
 }

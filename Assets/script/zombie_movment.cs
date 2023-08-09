@@ -56,7 +56,4 @@ public class zombie_movment : MonoBehaviour
         this.animator.SetTrigger("isDie");
        
     }
-
-    
-
 }
