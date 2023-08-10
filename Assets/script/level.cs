@@ -31,8 +31,15 @@ public class level : MonoBehaviour
             btn[i].GetComponent<Image>().sprite = ispass;
             btn[i].transform.GetChild(0).GetComponent<Image>().sprite = pass_no[i];
             btn[i].transform.GetChild(1).GetComponent<Image>().enabled = false;
+            
         }
-     
+
+        for (int i = 1; i < level_no; i++)
+        {
+            int thilevelnumber = PlayerPrefs.GetInt((i).ToString());
+            Debug.Log((i).ToString());
+            Debug.Log(thilevelnumber);
+        }
        
     }
 

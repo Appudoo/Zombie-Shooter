@@ -63,7 +63,7 @@ public class gunController : MonoBehaviour
         {
             Destroy(imagesArray[bulletCounter - 1]);
             bulletCounter--;
-           
+            
         }
 
 

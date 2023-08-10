@@ -55,6 +55,8 @@ public class win : MonoBehaviour
             star3.GetComponent<Image>().sprite = emtystar;
         }
         iswin = true;
+        Debug.Log(PlayerPrefs.GetInt("level_number").ToString());
+        PlayerPrefs.SetInt(PlayerPrefs.GetInt("level_number").ToString(), gunController.instance.bulletCounter);
     }
 
     public void onclickContinue()
