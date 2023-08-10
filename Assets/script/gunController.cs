@@ -52,7 +52,7 @@ public class gunController : MonoBehaviour
         Vector2 directionOfBullet = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
         audioSource.PlayOneShot(gunFire);
         GameObject g = Instantiate(bullet, gunpoint.transform.position, Quaternion.identity);
-        g.transform.SetParent(parent.transform);
+        //g.transform.SetParent(parent.transform);
         g.GetComponent<Rigidbody2D>().AddForce(directionOfBullet * 1500);
         destroy();
         

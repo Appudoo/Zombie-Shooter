@@ -31,15 +31,7 @@ public class bulletManger : MonoBehaviour
         }
       
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "zombie")
-        {
-            
-            zombie_movment.inst.tiggerOn();
-            
-        }
-    }
+   
 
 
 }
