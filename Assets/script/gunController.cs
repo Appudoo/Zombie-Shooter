@@ -49,6 +49,7 @@ public class gunController : MonoBehaviour
 
     void Fire()
     {
+
         Vector2 directionOfBullet = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
         audioSource.PlayOneShot(gunFire);
         GameObject g = Instantiate(bullet, gunpoint.transform.position, Quaternion.identity);

@@ -10,16 +10,23 @@ public class win : MonoBehaviour
     public Text complated_text;
     public GameObject star1, star2, star3;
     public Sprite fullstar, emtystar;
-    int level;
+    int level,star;
     internal bool iswin;
     void Start()
     {
         inst = this;
-        level = PlayerPrefs.GetInt("level_number");
+        if (PlayerPrefs.GetInt("isPlay") == 0   )
+        {
+            level = PlayerPrefs.GetInt("crruntlevel");
+        }
+        else
+        {
+            level = PlayerPrefs.GetInt("level_number")-1;
+        }
         Debug.Log(level);
         Debug.Log(gunController.instance.bulletCounter);
 
-        complated_text.text = level-1 + " Complated ";
+        complated_text.text = level + " Complated ";
 
         DefineStar();
 
@@ -41,22 +48,35 @@ public class win : MonoBehaviour
             star1.GetComponent<Image>().sprite = fullstar;
             star2.GetComponent<Image>().sprite = fullstar;
             star3.GetComponent<Image>().sprite = fullstar;
+            star = 3;
         }
         if (gunController.instance.bulletCounter == 3)
         {
             star1.GetComponent<Image>().sprite = fullstar;
             star2.GetComponent<Image>().sprite = fullstar;
             star3.GetComponent<Image>().sprite = emtystar;
+            star = 2;
         }
         if (gunController.instance.bulletCounter < 3)
         {
             star1.GetComponent<Image>().sprite = fullstar;
             star2.GetComponent<Image>().sprite = emtystar;
             star3.GetComponent<Image>().sprite = emtystar;
+            star = 1;
         }
         iswin = true;
-        Debug.Log(PlayerPrefs.GetInt("level_number").ToString());
-        PlayerPrefs.SetInt(PlayerPrefs.GetInt("level_number").ToString(), gunController.instance.bulletCounter);
+
+        int level;
+        if (PlayerPrefs.GetInt("isPlay") == 0)
+        {
+            level = PlayerPrefs.GetInt("crruntlevel");
+        }
+        else
+        {
+            level = PlayerPrefs.GetInt("level_number")-1;
+        }
+
+        PlayerPrefs.SetInt("star" + level, star);
     }
 
     public void onclickContinue()
