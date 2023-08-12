@@ -24,7 +24,7 @@ public class win : MonoBehaviour
             level = PlayerPrefs.GetInt("level_number")-1;
         }
         Debug.Log(level);
-        Debug.Log(gunController.instance.bulletCounter);
+      
 
         complated_text.text = level + " Complated ";
 
@@ -82,6 +82,13 @@ public class win : MonoBehaviour
     public void onclickContinue()
     {
         SceneManager.LoadScene("play");
+        Time.timeScale = 1;
+        this.enabled = false;
+    }
+
+    public void onclickMainmenu()
+    {
+        SceneManager.LoadScene("home");
         Time.timeScale = 1;
         this.enabled = false;
     }

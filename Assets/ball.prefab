@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 798840870871118727}
   - component: {fileID: 7023755263439864988}
   - component: {fileID: -498689617932154008}
-  - component: {fileID: 6033300932815357907}
   - component: {fileID: 2042700621978787764}
+  - component: {fileID: 6554750868808960095}
   m_Layer: 0
   m_Name: ball
   m_TagString: bullet
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 142699837
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2f4bc103e963ff46b5ced48137f97e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01c329ba128575948a0c0d376840e7a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798840870871118731}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bc042b5c29722849aa4d84406eb1a8f, type: 3}
   m_Name: 
@@ -164,7 +164,7 @@ TrailRenderer:
   m_SortingLayerID: 142699837
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Time: 0.08
+  m_Time: 0.09
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -230,7 +230,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!60 &6033300932815357907
+--- !u!114 &2042700621978787764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798840870871118731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aadcdadd67302740813be281efaa7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &6554750868808960095
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,7 +259,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 0.25, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -255,25 +267,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.065, y: 0.39999998}
-      - {x: 0.044999998, y: 0.5}
-      - {x: -0.03, y: 0.5}
-      - {x: -0.04, y: 0.48499998}
-      - {x: -0.065, y: 0.36499998}
-      - {x: -0.099999994, y: 0.105}
-      - {x: -0.099999994, y: -0.5}
-      - {x: 0.095, y: -0.5}
-      - {x: 0.099999994, y: -0.49499997}
-      - {x: 0.099999994, y: 0.11}
---- !u!114 &2042700621978787764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798840870871118731}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aadcdadd67302740813be281efaa7cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    - - {x: 0.33333334, y: 0.02}
+      - {x: 0.32333335, y: 0.026666667}
+      - {x: 0.24333334, y: 0.043333333}
+      - {x: 0.07, y: 0.06666667}
+      - {x: -0.33333334, y: 0.06666667}
+      - {x: -0.33333334, y: -0.06333333}
+      - {x: -0.33, y: -0.06666667}
+      - {x: 0.07333334, y: -0.06666667}
+      - {x: 0.26666668, y: -0.043333333}
+      - {x: 0.33333334, y: -0.030000001}

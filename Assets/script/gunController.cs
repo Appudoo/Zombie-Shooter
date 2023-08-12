@@ -12,7 +12,7 @@ public class gunController : MonoBehaviour
     public AudioClip gunFire, zombie, zombieDie;
     LineRenderer line;
 
-    internal int bulletCounter = 5, totalbullet = 5;
+    internal int bulletCounter = 5;
 
     Vector2 pos;
     // Start is called before the first frame update
